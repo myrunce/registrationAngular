@@ -1,0 +1,96 @@
+<h1>Registration</h1>
+<fieldset>
+  <p class="green">{{success}}</p>
+  <p class="green">{{ day }}
+  <h3>Account Information</h3>
+  <form (submit)="onSubmit()">
+    <p class="red" *ngIf = '!this.user.firstName'>First Name is Required</p>
+    <span class="red">*</span>First Name:
+    <input 
+    type="text" 
+    name="firstName" 
+    required
+    [(ngModel)]='user.firstName'
+    #firstName="ngModel"
+    />
+    <br><br>
+    <p class="red" *ngIf = '!this.user.lastName'>First Name is Required</p>
+    <span class="red">*</span>Last Name:
+    <input 
+    type="text" 
+    name="lastName" 
+    required
+    [(ngModel)]='user.lastName'
+    #lastName="ngModel"
+    /><br><br>
+    <p class="red" *ngIf = '!this.user.email'>Email is Required</p>
+    <span class="red">*</span>Email:
+    <input 
+    type="email" 
+    name="email" 
+    required
+    [(ngModel)]='user.email'
+    #email="ngModel"
+    /><br><br>
+     <p class="red" *ngIf = '!this.user.password'>Password is Required</p>
+    <span class="red">*</span>Password:
+    <input 
+    type="password" 
+    name="password" 
+    required
+    [(ngModel)]='user.password'
+    #password="ngModel"
+    /><br><br>
+    <p class="red">{{ notMatch }}</p>
+    <span class="red">*</span>Confirm password:
+    <input 
+    type="password" 
+    name="cPassword" 
+    required
+    [(ngModel)]='user.cPassword'
+    #cPassword="ngModel"
+    />
+    <br><br>
+    <p class="red" *ngIf = '!this.user.address'>Address is Required</p>
+    <span class="red">*</span>Street Address:
+    <input 
+    type="text" 
+    name="address" 
+    required
+    [(ngModel)]='user.address'
+    #address="ngModel"
+    />
+    <br><br>
+    Unit/Apt #:
+    <input 
+    type="text" 
+    name="uApt" 
+    [(ngModel)]='user.uApt'
+    #uApt="ngModel"
+    />
+    <br><br>
+    <p class="red" *ngIf = '!this.user.city'>City is Required</p>
+    <span class="red">*</span>City:
+    <input 
+    type="text" 
+    name="city" 
+    required
+    [(ngModel)]='user.city'
+    #city="ngModel"
+    />
+    <br><br>
+    <span class="red">*</span>State:
+    <select name="state"
+    required 
+    [(ngModel)]='user.state'
+    #state = 'ngModel'>
+      <option *ngFor = "let state of allStates" value="{{state}}">{{state}}</option>
+    </select>
+    <br><br>
+    <p class="red" *ngIf = '!this.user.lucky'>Feeling is Required</p>
+    <span class="red">*</span>I'm feeling lucky: <input type="radio" name="lucky" [(ngModel)]="user.lucky" required value="no"> No <input type="radio" name="lucky" [(ngModel)]="user.lucky" required value="yes">Yes
+    <br><br>
+    <input type="submit" value="Register">
+  </form>
+</fieldset>
+
